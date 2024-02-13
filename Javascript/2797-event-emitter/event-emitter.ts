@@ -8,7 +8,7 @@ class EventEmitter {
 
     subscribe(eventName: string, callback: Callback): Subscription {
         const subscribersMap = this._subscribers.get(eventName) ?? new Map();
-        const id = new Date();
+        const id = Symbol(callback.name)
         subscribersMap.set(id, callback);
         this._subscribers.set(eventName, subscribersMap);
         return {
