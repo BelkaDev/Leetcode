@@ -1,7 +1,6 @@
 function frequencySort(s: string): string {
     // Should use heap instead.
     
-    
     const freqMap = new Map();
     const reverseMap = new Map();
     
