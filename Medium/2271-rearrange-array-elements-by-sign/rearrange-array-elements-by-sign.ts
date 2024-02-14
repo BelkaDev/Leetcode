@@ -1,20 +1,14 @@
 function rearrangeArray(nums: number[]): number[] {
-    const positives = []
-    const negatives = []
     const result = [];
+    let [pp, pn] = [0,1];
     for (const num of nums) {
-        if (num > 0) positives.push(num)
-        else negatives.push(num);
+        if (num > 0) {
+            result[pp] = num;
+            pp+=2;
+        } else {
+            result[pn] = num;
+            pn+=2;
+        }
     }
-    
-    let i = 0;
-    let k = 0;
-    while (k < nums.length/2) {
-        nums[i] = positives[k];
-        nums[i+1] = negatives[k];
-        i+=2;
-        ++k;
-    }
-    
-    return nums;
+    return result;
 };
